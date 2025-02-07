@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center text-light">
+                <h1 class="display-4">Welcome to Kalimantan</h1>
+                <p class="lead">Discover the untamed beauty of Indonesian Borneo</p>
+                <a href="#destinations" class="btn btn-primary btn-lg">Explore Destinations</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Destinations Section -->
+<section id="destinations" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Popular Destinations</h2>
+        <div class="row">
+            {% for destination in destinations %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='img/' + destination.image) }}" 
+                         class="card-img-top" alt="{{ destination.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ destination.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ destination.location }}</h6>
+                        <p class="card-text">{{ destination.description }}</p>
+                        <a href="#" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                <h2 class="mb-4">About Kalimantan</h2>
+                <p class="lead">
+                    Kalimantan, the Indonesian portion of Borneo, is a land of ancient rainforests, 
+                    diverse wildlife, and rich cultural heritage. From orangutan sanctuaries to 
+                    pristine beaches, discover the wonders of this amazing destination.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
