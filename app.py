@@ -8,19 +8,19 @@ destinations = [
         'name': 'Tanjung Puting National Park',
         'location': 'Central Kalimantan',
         'description': 'Famous for its orangutan conservation and river cruises through pristine rainforest.',
-        'image': 'tanjung_puting.jpg'
+        'image': 'Tanjung Puting National Park.jpeg'
     },
     {
         'name': 'Derawan Islands',
         'location': 'East Kalimantan',
         'description': 'Beautiful archipelago known for its marine biodiversity, beaches, and diving spots.',
-        'image': 'derawan.jpg'
+        'image': 'Derawan Islands.jpeg'
     },
     {
         'name': 'Mahakam River',
         'location': 'East Kalimantan',
         'description': 'Historic river offering cultural tours and glimpses of traditional Dayak villages.',
-        'image': 'mahakam.jpg'
+        'image': 'Mahakam River.jpeg'
     }
 ]
 
