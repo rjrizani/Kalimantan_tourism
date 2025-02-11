@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block meta_tags %}
+<!-- Dynamic SEO Meta Tags -->
+<meta name="description" content="{{ destination.description }}">
+<meta name="keywords" content="Kalimantan Tourism, {{ destination.name }}, {{ destination.location }}, Indonesian Borneo">
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ destination.name }} - Kalimantan Tourism">
+<meta property="og:description" content="{{ destination.description }}">
+<meta property="og:image" content="{{ url_for('static', filename='img/' + destination.image, _external=True) }}">
+<meta property="og:url" content="{{ request.url }}">
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:title" content="{{ destination.name }} - Kalimantan Tourism">
+<meta name="twitter:description" content="{{ destination.description }}">
+{% endblock %}
+
+{% block content %}
+<!-- Destination Detail Hero Section -->
+<header class="hero-section" style="background-image: url('{{ url_for('static', filename='img/' + destination.image) }}');">
+    <div class="hero-overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center text-light">
+                <h1 class="display-4">{{ destination.name }}</h1>
+                <p class="lead">{{ destination.location }}</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Destination Details Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <h2 class="mb-4">About {{ destination.name }}</h2>
+                        <p class="lead mb-4">{{ destination.description }}</p>
+                        
+                        <!-- Additional Details -->
+                        <div class="mt-5">
+                            <h3 class="h4 mb-4">What to Expect</h3>
+                            <ul class="list-unstyled">
+                                {% if destination.name == 'Tanjung Puting National Park' %}
+                                <li class="mb-3">🦧 Observe orangutans in their natural habitat</li>
+                                <li class="mb-3">🚣‍♂️ Take a klotok (traditional boat) river cruise</li>
+                                <li class="mb-3">🌿 Experience pristine rainforest ecosystems</li>
+                                <li class="mb-3">🏕️ Visit Camp Leakey research station</li>
+                                {% elif destination.name == 'Derawan Islands' %}
+                                <li class="mb-3">🐢 Swim with sea turtles</li>
+                                <li class="mb-3">🤿 World-class diving and snorkeling</li>
+                                <li class="mb-3">🏖️ Relax on pristine beaches</li>
+                                <li class="mb-3">🐠 Explore vibrant coral reefs</li>
+                                {% else %}
+                                <li class="mb-3">🛶 Traditional river boat tours</li>
+                                <li class="mb-3">🏘️ Visit authentic Dayak villages</li>
+                                <li class="mb-3">🎭 Experience local cultural performances</li>
+                                <li class="mb-3">📸 Stunning river landscapes</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        <!-- Back Button -->
+                        <div class="text-center mt-5">
+                            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Back to Destinations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

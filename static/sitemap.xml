@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://rjscrapy.pythonanywhere.com/</loc>
+        <lastmod>2025-02-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://rjscrapy.pythonanywhere.com/destination/Tanjung%20Puting%20National%20Park</loc>
+        <lastmod>2025-02-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rjscrapy.pythonanywhere.com/destination/Derawan%20Islands</loc>
+        <lastmod>2025-02-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rjscrapy.pythonanywhere.com/destination/Mahakam%20River</loc>
+        <lastmod>2025-02-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>

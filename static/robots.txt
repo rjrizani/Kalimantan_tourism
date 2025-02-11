@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://rjscrapy.pythonanywhere.com/sitemap.xml
+
+

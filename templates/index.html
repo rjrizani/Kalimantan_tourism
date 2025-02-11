@@ -29,7 +29,7 @@
                         <h5 class="card-title">{{ destination.name }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ destination.location }}</h6>
                         <p class="card-text">{{ destination.description }}</p>
-                        <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        <a href="{{ url_for('destination_detail', name=destination.name) }}" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
             </div>
