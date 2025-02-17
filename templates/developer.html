@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}Developer Profile - Kalimantan Tourism{% endblock %}
+{% block title %}Ahmad Rizani - Full Stack Developer & Coding Teacher | Portfolio{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="Ahmad Rizani is a Full Stack Developer and Coding Teacher specializing in Python development. Hire me on Fastwork, Fiverr, Upwork, or connect on LinkedIn.">
+    <meta name="keywords" content="Ahmad Rizani, Full Stack Developer, Coding Teacher, Python Developer, Web Development, Freelancer, Kalimantan">
+    <meta name="author" content="Ahmad Rizani">
+    
+    <!-- Open Graph Meta Tags for social sharing -->
+    <meta property="og:title" content="Ahmad Rizani - Full Stack Developer & Coding Teacher">
+    <meta property="og:description" content="Professional Full Stack Developer and Coding Teacher with expertise in Python and web development. Available for hire on various platforms.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/AhmadRizani.jpg', _external=True) }}">
+    <meta property="og:type" content="profile">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahmad Rizani - Full Stack Developer & Coding Teacher">
+    <meta name="twitter:description" content="Professional Full Stack Developer and Coding Teacher with expertise in Python and web development.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='img/AhmadRizani.jpg', _external=True) }}">
+{% endblock %}
 
 {% block content %}
 <div class="container py-5">
