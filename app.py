@@ -35,6 +35,10 @@ def destination_detail(name):
         return 'Destination not found', 404
     return render_template('destination_detail.html', destination=destination)
 
+@app.route('/developer')
+def developer():
+    return render_template('developer.html')
+
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
 def static_from_root():

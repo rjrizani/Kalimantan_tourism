@@ -64,6 +64,72 @@ section {
     padding: 60px 0;
 }
 
+/* Developer Profile Styles */
+.freelance-platforms .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.freelance-platforms .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.freelance-platforms .card-body {
+    padding: 1.5rem;
+}
+
+.freelance-platforms img {
+    max-width: 100%;
+    height: auto;
+}
+
+.freelance-platforms .card h4 {
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+.freelance-platforms .card:hover h4 {
+    color: #0d6efd;
+}
+
+/* BrightChamps Section Styles */
+.brightchamps-section .special-offer {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brightchamps-section .special-offer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.demo-subjects .badge {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+
+.demo-subjects .badge:hover {
+    transform: scale(1.1);
+}
+
+.brightchamps-section .btn-primary {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.brightchamps-section .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
 /* Footer Styles */
 footer {
     margin-top: 0 !important;

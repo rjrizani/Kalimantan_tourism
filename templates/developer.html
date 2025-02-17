@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Developer Profile - Kalimantan Tourism{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Developer Profile</h1>
+                    <div class="text-center mb-4">
+                        <img src="{{ url_for('static', filename='img/AhmadRizani.jpg') }}" alt="Ahmad Rizani" class="rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;">
+                        <h2 class="h3">Ahmad Rizani</h2>
+                        <p class="text-muted">Full Stack Developer | Coding Teacher | Python Developer</p>
+                    </div>
+
+                    <div class="freelance-platforms mt-4">
+                        <h3 class="h4 text-center mb-4">Hire Me On</h3>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <a href="https://fastwork.id/user/rjrizani" target="_blank" class="card h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <img src="{{ url_for('static', filename='img/fastwork.png') }}" alt="Fastwork" style="height: 40px; margin-bottom: 10px;">
+                                        <h4 class="h5 mb-0">Fastwork</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://www.fiverr.com/s/jjqr4QG" target="_blank" class="card h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <img src="{{ url_for('static', filename='img/fiverr-icon.png') }}" alt="Fiverr" style="height: 40px; margin-bottom: 10px;">
+                                        <h4 class="h5 mb-0">Fiverr</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://www.upwork.com/freelancers/~011a55cfd80a2a5f18?mp_source=share" target="_blank" class="card h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <img src="{{ url_for('static', filename='img/upwork-icon.png') }}" alt="Upwork" style="height: 40px; margin-bottom: 10px;">
+                                        <h4 class="h5 mb-0">Upwork</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://www.linkedin.com/in/ahmad-rizani-199a8110a/" target="_blank" class="card h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <img src="{{ url_for('static', filename='img/linkedin-app-icon.png') }}" alt="LinkedIn" style="height: 40px; margin-bottom: 10px;">
+                                        <h4 class="h5 mb-0">LinkedIn</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="brightchamps-section mt-5">
+                        <div class="card bg-gradient special-offer">
+                            <div class="card-body text-center">
+                                <h3 class="h4 mb-3">Free Demo Classes</h3>
+                                <p class="mb-3">Get free demo classes in:</p>
+                                <div class="demo-subjects mb-4">
+                                    <span class="badge bg-primary m-1">Coding</span>
+                                    <span class="badge bg-success m-1">GenAI</span>
+                                    <span class="badge bg-info m-1">Roblox</span>
+                                    <span class="badge bg-warning m-1">English</span>
+                                    <span class="badge bg-danger m-1">Robotics</span>
+                                </div>
+                                <a href="https://link.brightchamps.com/i9G6dq0zvz111" 
+                                   target="_blank" 
+                                   class="btn btn-primary btn-lg">
+                                    Claim Your Free Demo Class
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
