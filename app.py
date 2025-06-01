@@ -153,7 +153,7 @@ def sync_articles():
         # Fetch articles from API with timeout and error handling
         api_url = app.config['ARTICLES_API_URL']
         headers = {'Authorization': f'Bearer {app.config["API_KEY"]}'}
-        response = requests.get(api_url + '/articles', headers=headers, timeout=10)
+        response = requests.get(api_url + '/articles', timeout=10)
         response.raise_for_status()
         
         articles_data = response.json()
