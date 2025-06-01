@@ -1,7 +1,11 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from config import Config
-from models import db, User, Destination
+from models import db, User, Destination, Article
+import requests
+from datetime import datetime
+import logging
+from functools import wraps
 from forms import LoginForm, RegistrationForm, DestinationForm
 from functools import wraps
 
@@ -68,7 +72,8 @@ def logout():
 @admin_required
 def admin_dashboard():
     destinations = Destination.query.all()
-    return render_template('admin/dashboard.html', destinations=destinations)
+    articles = Article.query.order_by(Article.updated_at.desc()).all()
+    return render_template('admin/dashboard.html', destinations=destinations, articles=articles)
 
 @app.route('/admin/destination/new', methods=['GET', 'POST'])
 @login_required
@@ -128,6 +133,57 @@ def destination_detail(name):
 @app.route('/developer')
 def developer():
     return render_template('developer.html')
+
+# Article routes
+@app.route('/articles')
+def articles():
+    articles = Article.query.order_by(Article.updated_at.desc()).all()
+    return render_template('articles.html', articles=articles)
+
+@app.route('/article/<int:article_id>')
+def article_detail(article_id):
+    article = Article.query.get_or_404(article_id)
+    return render_template('article_detail.html', article=article)
+
+@app.route('/admin/sync-articles')
+@login_required
+@admin_required
+def sync_articles():
+    try:
+        # Fetch articles from API with timeout and error handling
+        api_url = app.config['ARTICLES_API_URL']
+        headers = {'Authorization': f'Bearer {app.config["API_KEY"]}'}
+        response = requests.get(api_url + '/articles', headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        articles_data = response.json()
+        
+        # Update local database
+        for article_data in articles_data:
+            existing_article = Article.query.filter_by(api_id=str(article_data['id'])).first()
+            
+            if existing_article:
+                # Update existing article
+                existing_article.title = article_data['title']
+                existing_article.content = article_data['content']
+                existing_article.updated_at = datetime.utcnow()
+            else:
+                # Create new article
+                new_article = Article(
+                    api_id=str(article_data['id']),
+                    title=article_data['title'],
+                    content=article_data['content']
+                )
+                db.session.add(new_article)
+        
+        db.session.commit()
+        flash('Articles synchronized successfully!', 'success')
+        
+    except requests.RequestException as e:
+        logging.error(f"API sync error: {str(e)}")
+        flash('Error synchronizing articles. Please try again later.', 'danger')
+    
+    return redirect(url_for('admin_dashboard'))
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')

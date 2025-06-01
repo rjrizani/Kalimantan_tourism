@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('articles') }}">Articles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+        </ol>
+    </nav>
+
+    <article class="bg-white p-4 rounded shadow-sm">
+        <h1 class="mb-4">{{ article.title }}</h1>
+        <div class="text-muted mb-4">
+            Last updated: {{ article.updated_at.strftime('%Y-%m-%d') }}
+        </div>
+        <div class="article-content">
+            {{ article.content | safe }}
+        </div>
+    </article>
+</div>
+{% endblock %}

@@ -8,3 +8,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'mysql+pymysql://username:password@localhost/kalimantan_tourism'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    
+    # Articles API Configuration
+    ARTICLES_API_URL = os.environ.get('ARTICLES_API_URL') 
+    API_KEY = os.environ.get('ARTICLES_API_URL') or 'your-api-key-here'  # Change this in production
