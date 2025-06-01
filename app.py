@@ -9,7 +9,9 @@ from functools import wraps
 from forms import LoginForm, RegistrationForm, DestinationForm
 from functools import wraps
 
-app = Flask(__name__)
+app = Flask(__name__,
+           static_folder='static',
+           static_url_path='/static')
 app.config.from_object(Config)
 db.init_app(app)
 
