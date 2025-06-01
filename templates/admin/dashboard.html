@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Admin Dashboard</h2>
+        <a href="{{ url_for('admin_destination_new') }}" class="btn btn-primary">Add New Destination</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Manage Destinations</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Image</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for destination in destinations %}
+                        <tr>
+                            <td>{{ destination.name }}</td>
+                            <td>{{ destination.location }}</td>
+                            <td>{{ destination.image }}</td>
+                            <td>{{ destination.created_at.strftime('%Y-%m-%d') }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{{ url_for('admin_destination_edit', id=destination.id) }}" 
+                                       class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="{{ url_for('admin_destination_delete', id=destination.id) }}" 
+                                          method="POST" class="d-inline"
+                                          onsubmit="return confirm('Are you sure you want to delete this destination?');">
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
