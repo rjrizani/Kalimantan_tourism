@@ -10,5 +10,5 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Articles API Configuration
-    ARTICLES_API_URL = os.environ.get('ARTICLES_API_URL') 
-    API_KEY = os.environ.get('ARTICLES_API_URL') or 'your-api-key-here'  # Change this in production
+    ARTICLES_API_URL = os.environ.get('ARTICLES_API_URL') or 
+    API_KEY = os.environ.get('API_KEY') or 'your-api-key-here'  # Change this in production
